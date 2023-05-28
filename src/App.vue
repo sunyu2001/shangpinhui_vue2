@@ -1,17 +1,23 @@
-<template>
+<template> 
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header></Header>
+
+    <!-- 路由组件出口地方 -->
+    <router-view></router-view>
+
+    <!-- 在Home、Search显示；在登录、注册隐藏 -->
+    <Footer v-show="$route.path=='/home'||$route.path=='/search'"></Footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
+import Header from './components/Header'
+import Footer from './components/Footer'
+export default{
+  name: '',
   components: {
-    HelloWorld
+    Header,
+    Footer
   }
 }
 </script>
